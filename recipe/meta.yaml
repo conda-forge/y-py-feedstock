@@ -1,5 +1,5 @@
 {% set name = "y-py" %}
-{% set version = "0.4.6" %}
+{% set version = "0.5.0" %}
 
 package:
   name: {{ name }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/y/y_py/y_py-{{ version }}.tar.gz
-  sha256: b11c9e6e0e08446e3b5bfd345dc206d0201991f6ae7677ccf5c4b8c6b1211544
+  sha256: 951b763fc19d0867e35c2b936b6874c982a674a45db9cf086b269cea3e495883
 
 build:
   number: 0
