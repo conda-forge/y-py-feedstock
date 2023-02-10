@@ -404,4 +404,5 @@ Feedstock Maintainers
 
 * [@Waidhoferj](https://github.com/Waidhoferj/)
 * [@davidbrochart](https://github.com/davidbrochart/)
+* [@fcollonval](https://github.com/fcollonval/)
 
