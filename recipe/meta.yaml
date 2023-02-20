@@ -1,5 +1,5 @@
 {% set name = "y-py" %}
-{% set version = "0.5.5" %}
+{% set version = "0.6.0" %}
 
 package:
   name: {{ name }}
@@ -7,10 +7,10 @@ package:
 
 source:
   url: https://pypi.io/packages/source/y/y_py/y_py-{{ version }}.tar.gz
-  sha256: f222bab71d8d3df9a40b2e5ab3a767d734c6ce11998e9a30a02fb83ab3e090b3
+  sha256: 46836169f7dc2957df8513cfe4bc2009175b3a473e630af421a8e75ee1c48f98
 
 build:
-  number: 2
+  number: 0
   script:
     - {{ PYTHON }} -m pip install . -vv
     - cargo-bundle-licenses --format yaml --output THIRDPARTY.yml
