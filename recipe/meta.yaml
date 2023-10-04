@@ -31,10 +31,14 @@ requirements:
     - python
 
 test:
+  source_files:
+    - tests
   requires:
     - pip
+    - pytest-cov
   commands:
     - pip check
+    - pytest --cov=y_py --cov-branch --cov-report=term-missing:skip-covered --no-cov-on-fail --cov-fail-under=83
   imports:
     - y_py
 
