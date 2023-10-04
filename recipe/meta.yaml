@@ -1,8 +1,8 @@
-{% set name = "y-py" %}
 {% set version = "0.6.0" %}
+{% set maturin_version = ">=0.14,<0.15" %}
 
 package:
-  name: {{ name }}
+  name: y-py
   version: {{ version }}
 
 source:
@@ -10,31 +10,35 @@ source:
   sha256: 46836169f7dc2957df8513cfe4bc2009175b3a473e630af421a8e75ee1c48f98
 
 build:
-  number: 0
+  number: 1
   script:
-    - {{ PYTHON }} -m pip install . -vv
+    - {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
     - cargo-bundle-licenses --format yaml --output THIRDPARTY.yml
 
 requirements:
   build:
     - python                                 # [build_platform != target_platform]
     - cross-python_{{ target_platform }}     # [build_platform != target_platform]
-    - maturin >=0.13,<0.14                   # [build_platform != target_platform]
+    - maturin {{ maturin_version }}          # [build_platform != target_platform]
     - {{ compiler('c') }}
     - {{ compiler('rust') }}
     - cargo-bundle-licenses
   host:
-    - maturin >=0.13,<0.14
+    - maturin {{ maturin_version }}
     - pip
     - python
   run:
     - python
 
 test:
+  source_files:
+    - tests
   requires:
     - pip
+    - pytest-cov
   commands:
     - pip check
+    - pytest --cov=y_py --cov-branch --cov-report=term-missing:skip-covered --no-cov-on-fail --cov-fail-under=83
   imports:
     - y_py
 
