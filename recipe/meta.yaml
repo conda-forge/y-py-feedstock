@@ -1,4 +1,5 @@
-{% set version = "0.6.0" %}
+{% set maturin_version = ">=0.14,<0.15" %}
+{% set version = "0.6.2" %}
 {% set maturin_version = ">=0.14,<0.15" %}
 
 package:
@@ -7,10 +8,10 @@ package:
 
 source:
   url: https://pypi.io/packages/source/y/y_py/y_py-{{ version }}.tar.gz
-  sha256: 46836169f7dc2957df8513cfe4bc2009175b3a473e630af421a8e75ee1c48f98
+  sha256: 4757a82a50406a0b3a333aa0122019a331bd6f16e49fed67dca423f928b3fd4d
 
 build:
-  number: 1
+  number: 0
   script:
     - {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
     - cargo-bundle-licenses --format yaml --output THIRDPARTY.yml
